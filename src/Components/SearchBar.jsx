@@ -53,9 +53,6 @@ const SearchBar = () => {
   }, [input]);
   return (
     <div>
-      <label className="block mb-2 text-sm font-medium text-gray-600 p-4">
-        Choose a User:
-      </label>
       <div className="px-4 flex flex-col items-center">
         <div className="border border-gray-300 w-2/3 flex flex-row  gap-1 flex-wrap p-2">
           {data.map((item, index) => {
