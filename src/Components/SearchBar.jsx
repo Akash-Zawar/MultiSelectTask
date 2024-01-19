@@ -6,6 +6,7 @@ const SearchBar = () => {
   const [input, setInput] = useState("");
   const [flag, setFlag] = useState(false);
   const [data, setData] = useState(dataList);
+  const [selectedData, setSelectedData] = useState([]);
 
   const onUserClick = (id) => {
     setData((prevData) => {
@@ -17,6 +18,8 @@ const SearchBar = () => {
         return item;
       });
     });
+    const selectedUser = data.find((item) => item.id === id);
+    setSelectedData((prevSelectedData) => [...prevSelectedData, selectedUser]);
   };
 
   const onUserTileClick = (id) => {
@@ -28,6 +31,7 @@ const SearchBar = () => {
         return item;
       });
     });
+    setSelectedData((prevData) => prevData.filter((item) => item.id !== id));
   };
 
   const onInputClick = () => {
@@ -51,11 +55,13 @@ const SearchBar = () => {
     setData([...searchedData]);
     console.log(searchedData);
   }, [input]);
+
+  console.log(selectedData);
   return (
     <div>
       <div className="p-4 flex flex-col items-center">
         <div className="border border-gray-300 w-2/3 flex flex-row  gap-1 flex-wrap p-2">
-          {data.map((item, index) => {
+          {selectedData.map((item, index) => {
             if (item.selection) {
               return (
                 <div key={index}>
