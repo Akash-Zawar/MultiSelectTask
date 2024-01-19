@@ -53,7 +53,7 @@ const SearchBar = () => {
   }, [input]);
   return (
     <div>
-      <div className="px-4 flex flex-col items-center">
+      <div className="p-4 flex flex-col items-center">
         <div className="border border-gray-300 w-2/3 flex flex-row  gap-1 flex-wrap p-2">
           {data.map((item, index) => {
             if (item.selection) {
